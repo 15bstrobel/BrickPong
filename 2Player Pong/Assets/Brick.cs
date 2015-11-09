@@ -33,11 +33,8 @@ public class Brick : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D hit) {
-		Debug.Log ("collided with ball.");
-		
 		if (hit.gameObject.CompareTag("Ball")) {
 			currentStrength--;
-			Debug.Log (currentStrength);
 			if (currentStrength <= 0) {
 				Destroy(gameObject);
 			}

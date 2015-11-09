@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class Deadzone : MonoBehaviour {
 
 	public List<GameObject> lives;
+	public int player;
 
 	void Start () {
 	
@@ -12,8 +13,12 @@ public class Deadzone : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other) {
 		Destroy (other.gameObject);
-		Destroy (lives [0]);
-		lives.Remove (lives [0]);
+		if (lives.Count > 1) {
+			Destroy (lives [0]);
+			lives.Remove (lives [0]);
+		} else {
+			Manager.OnPlayerLost (player);
+		}
 	}
 
 	void Update () {
