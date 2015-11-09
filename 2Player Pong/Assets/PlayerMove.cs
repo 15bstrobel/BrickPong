@@ -1,5 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+
+// Players move script. Edit their up and down keys, and their speed. Call setMinMax to change the lowest
+// and highest Y-values.
 
 public class PlayerMove : MonoBehaviour {
 	
@@ -10,6 +14,7 @@ public class PlayerMove : MonoBehaviour {
 	float min = -5f;
 	float max = 5f;
 	
+
 	// Use this for initialization
 	void Start () {
 		
@@ -23,7 +28,6 @@ public class PlayerMove : MonoBehaviour {
 
 	// To be called when game is ready start
 	public void startGame() {
-
 	}
 
 

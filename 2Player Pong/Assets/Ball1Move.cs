@@ -1,9 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// Bounes around. Will richocet off of player paddle based on the difference in y values.
+// Change ballVelocity for the general speed, and yReductionFactor changes how much the 
+// difference in Y values affects the ball's changed velocity.
+
 public class Ball1Move : MonoBehaviour {
 
+
 	public float ballVelocity = 200;
+	public float yReductonFactor = .5f;
 	Rigidbody2D rb;
 	bool isPlay;
 	int randInt;
@@ -32,7 +38,7 @@ public class Ball1Move : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D hit) {
 		if (hit.gameObject.CompareTag("Player")) {
 			Vector3 d = gameObject.transform.position - hit.gameObject.transform.position;
-			d.y *= .5f;
+			d.y *= yReductonFactor;
 			d.Normalize();
 			rb.velocity = Vector2.zero;
 			rb.AddForce(new Vector2(d.x * ballVelocity, d.y * ballVelocity));

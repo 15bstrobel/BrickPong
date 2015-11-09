@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// Initializes player paddles, pauses the game. Set min and max to the lowest and highest paddle
+// y values, and pauseKey to the pause button. 
+
+// Call OnPlayerLost(int) when you want to tell the game the player lost.
+
 public class Manager : MonoBehaviour {
 
 	public GameObject player1;
@@ -10,7 +15,15 @@ public class Manager : MonoBehaviour {
 	public float max;
 	public KeyCode pauseKey; 
 
+	
 	bool pause = false;
+
+	public static Manager current;
+
+	void Awake() {
+		current = this;
+		DontDestroyOnLoad(gameObject);
+	}
 
 	// Use this for initialization
 	void Start () {
@@ -22,7 +35,7 @@ public class Manager : MonoBehaviour {
 	void Update () {
 
 		// Pause doesn't work
-		if (Input.GetKey(pauseKey)) {
+		if (Input.GetKeyDown(pauseKey)) {
 			pause = !pause;
 			if (pause) {
 				Time.timeScale = 0f;
@@ -30,6 +43,9 @@ public class Manager : MonoBehaviour {
 				Time.timeScale = 1f;
 			}
 		}
+	}
 
+	public static void OnPlayerLost(int player) {
+		GeneralMessage.setMessage("Player " + player + " lost.");
 	}
 }
