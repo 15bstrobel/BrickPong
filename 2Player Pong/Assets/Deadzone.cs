@@ -1,11 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Deadzone : MonoBehaviour {
 
-	public GameObject heart;
-
-
+	public List<GameObject> lives;
 
 	void Start () {
 	
@@ -13,7 +12,8 @@ public class Deadzone : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other) {
 		Destroy (other.gameObject);
-		Destroy (heart);
+		Destroy (lives [0]);
+		lives.Remove (lives [0]);
 	}
 
 	void Update () {
