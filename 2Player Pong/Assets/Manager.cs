@@ -20,6 +20,8 @@ public class Manager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		// Pause doesn't work
 		if (Input.GetKey(pauseKey)) {
 			pause = !pause;
 			if (pause) {

@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04b2dc329357d4f14b43ae4ebf679900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballVelocity: 200
+  ballVelocity: 400
 --- !u!212 &21261218
 SpriteRenderer:
   m_ObjectHideFlags: 1

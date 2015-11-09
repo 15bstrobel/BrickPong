@@ -20,6 +20,12 @@ public class PlayerMove : MonoBehaviour {
 		this.max = max;
 	}
 
+	// To be called when game is ready start
+	public void startGame() {
+
+	}
+
+
 	
 	// Update is called once per frame
 	void Update () {
