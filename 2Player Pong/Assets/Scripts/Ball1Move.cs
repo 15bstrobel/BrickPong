@@ -7,32 +7,28 @@ using System.Collections;
 
 public class Ball1Move : MonoBehaviour {
 
-
+	Vector3 spawn;
 	public float ballVelocity = 200;
+	public bool reverse;
 	public float yReductonFactor = .5f;
 	Rigidbody2D rb;
 	bool isPlay;
-	int randInt;
+
 
 	void Awake () {
 		rb = gameObject.GetComponent<Rigidbody2D> ();
-		randInt = Random.Range (1, 3);
 	}
-	
+
+	void Start() {
+		spawn = gameObject.transform.position;
+	}
 
 	void Update () {
 		if (Input.GetKey(KeyCode.Space) == true && isPlay == false) {
-			transform.parent = null;
-			isPlay = true;
-			rb.isKinematic = false;
-			if (randInt == 1) {
-				rb.AddForce(new Vector3(ballVelocity,0,0));
-			}
-		if (randInt == 2) {
-				rb.AddForce(new Vector3(-ballVelocity,0,0));
-			}
-
+			StartMoving();
 		}
+		//here we need to constantly poll for the direction and reset velocity to ballVelocity in that direction. This 
+		//should prevent collisions causing the ball to suddenly stop.
 	}
 
 	void OnCollisionEnter2D(Collision2D hit) {
@@ -45,5 +41,21 @@ public class Ball1Move : MonoBehaviour {
 		}
 	}
 
+	public void Respawn() {
+		gameObject.SetActive(true);
+		gameObject.transform.position = spawn;
+		StartMoving();
+	}
 
+	void StartMoving() {
+		transform.parent = null;
+		isPlay = true;
+		rb.isKinematic = false;
+		
+		if (!reverse) {
+			rb.AddForce(new Vector3(ballVelocity,0,0));
+		} else {
+			rb.AddForce(new Vector3(-ballVelocity,0,0));
+		}
+	}
 }

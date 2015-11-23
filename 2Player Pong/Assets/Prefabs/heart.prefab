@@ -24,7 +24,7 @@ Transform:
   m_GameObject: {fileID: 193054}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -16.7900009, y: 4.0999999, z: 0}
-  m_LocalScale: {x: .170051038, y: .179001346, z: .716004372}
+  m_LocalScale: {x: .150000006, y: .150000006, z: .716004372}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -50,7 +50,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: 1206597091
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2212348c0bb824618bf1f1bc7000f75b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -60,7 +60,19 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_SortingLayerID
+      value: 1206597091
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.x
+      value: .150000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.y
+      value: .150000006
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 193054}
