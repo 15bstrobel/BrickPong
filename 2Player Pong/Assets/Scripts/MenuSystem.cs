@@ -17,4 +17,8 @@ public class MenuSystem : MonoBehaviour {
 	void StartGame() {
 		Application.LoadLevel("GenericLevel");
 	}
+
+	void StartCustomGame() {
+		//change the menu to a custom set up
+	}
 }

@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04b2dc329357d4f14b43ae4ebf679900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballVelocity: 400
+  ballVelocity: 250
   reverse: 0
   yReductonFactor: .5
 --- !u!212 &21261218
@@ -121,7 +121,7 @@ Prefab:
       objectReference: {fileID: 6200000, guid: 970794aaacf3347fb985971e29e0cd2c, type: 2}
     - target: {fileID: 0}
       propertyPath: ballVelocity
-      value: 200
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_GravityScale

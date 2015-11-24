@@ -33,15 +33,24 @@ public class Ball1Move : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D hit) {
 		if (hit.gameObject.CompareTag("Player")) {
-			Vector3 d = gameObject.transform.position - hit.gameObject.transform.position;
-			d.y *= yReductonFactor;
-			d.Normalize();
-			rb.velocity = Vector2.zero;
-			rb.AddForce(new Vector2(d.x * ballVelocity, d.y * ballVelocity));
+			HitPlayer(hit.gameObject);
 		}
 	}
 
+	public void HitPlayer(GameObject player) {
+		Vector3 d = gameObject.transform.position - player.transform.position;
+		d.y *= yReductonFactor;
+		d.Normalize();
+		rb.velocity = Vector2.zero;
+		rb.AddForce(new Vector2(d.x * ballVelocity, d.y * ballVelocity));
+	}
+
 	public void Respawn() {
+		foreach (MonoBehaviour script in gameObject.GetComponents<MonoBehaviour>()) {
+			if (!script.GetType().ToString().Equals("Ball1Move")) {
+				Destroy (script);
+			}
+		}
 		gameObject.SetActive(true);
 		gameObject.transform.position = spawn;
 		StartMoving();
