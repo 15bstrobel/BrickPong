@@ -21,4 +21,14 @@ public class MenuSystem : MonoBehaviour {
 	void StartCustomGame() {
 		//change the menu to a custom set up
 	}
+
+
+	public void Test(bool arg)
+	{
+		int value = 5;
+		if (arg)
+		{
+			value++;
+		}
+	}
 }
